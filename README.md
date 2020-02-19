@@ -1,17 +1,17 @@
-#Approval System Application
+# Approval System Application
 
-##Build Jar and install it:
+## Build Jar and install it:
 ```
 mvn clean install
 ```
-##deploy Jar:
+## deploy Jar:
 ```
 java -jar target/ApproverSystem-1.0-SNAPSHOT.jar 
 ```
 
-###REST APIs supported by Application:
+### REST APIs supported by Application:
 
-####Create Employee
+#### Create Employee
 
 - Create employee with employee id: 1237 and employee name: hello
 ```$xslt
@@ -26,7 +26,7 @@ curl -X POST \
 }'
 ```
 
-####Create Approver
+#### Create Approver
 
 - Create Approver with approver id: 12345678 and approver name: approver
 - Approver can approve documents of type 1 (TRAVEL) and 3 (MOBILE).
@@ -46,7 +46,7 @@ curl -X POST \
 }'
 ```
 
-####Upload Document
+#### Upload Document
 - Upload document of type 3 (MOBILE). Document is uploaded by employee:  1237.  Document id is generated and it will be available in response.
 ```$xslt
 curl -X POST \
@@ -59,7 +59,7 @@ curl -X POST \
   -F employee-id=1237
 ```
 
-###Update Document
+### Update Document
 
 - Update document with document id: 107996992. Document id is created when document is uploaded for first time.
 
@@ -74,7 +74,7 @@ curl -X PUT \
   -F employee-id=1237
 ```
 
-####Get all documents
+#### Get all documents
 -Get All documents available in Approval system.
 
 ```curl -X GET \
@@ -83,7 +83,7 @@ curl -X PUT \
      -H 'Postman-Token: a846164e-ee38-4a8a-b794-591667aa8118
 ```
 
-####Get Single Document using document id
+#### Get Single Document using document id
 ```$xslt
 curl -X GET \
   http://localhost:8080/approval-system/v1/documents/107996992 \
@@ -91,7 +91,7 @@ curl -X GET \
   -H 'Postman-Token: 10428a2f-b06f-497a-9005-de969470991c'
 ```
 
-####Get All pending documents Given Approver Id
+#### Get All pending documents Given Approver Id
 ```$xslt
 curl -X GET \
   http://localhost:8080/approval-system/v1/approvers/12345678/pending-documents \
@@ -99,7 +99,7 @@ curl -X GET \
   -H 'Postman-Token: 6bb14776-c108-47e4-b8e4-6803c0997000'
 ```
 
-####Approve/Reject Pending Document
+#### Approve/Reject Pending Document
 - Approver: 12345678 is rejecting document with id: 107996992
 
 ```$xslt
